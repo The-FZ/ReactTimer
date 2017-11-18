@@ -3106,6 +3106,8 @@ var _require = __webpack_require__(29),
     Route = _require.Route,
     Switch = _require.Switch;
 
+//load foundation
+
 ReactDOM.render(React.createElement(
   BrowserRouter,
   null,

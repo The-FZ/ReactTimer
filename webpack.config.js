@@ -1,4 +1,5 @@
 const path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   entry:'./app/app.js',
@@ -17,7 +18,7 @@ module.exports = {
       WeatherMessage:path.resolve(__dirname,'./app/components/WeatherMessage.js'),
       openWeatherMap:path.resolve(__dirname,'./app/api/openWeatherMap.js')
     },
-    extensions:[' ', '.js', '.jsx']
+    extensions:[' ', '.js', '.jsx', '.css']
   },
   module:{
     loaders:[

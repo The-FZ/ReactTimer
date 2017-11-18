@@ -6,6 +6,8 @@ var About = require('About');
 var Examples = require('Examples');
 var {BrowserRouter, Route, Switch} = require('react-router-dom');
 
+//load foundation
+
 ReactDOM.render(
   <BrowserRouter>
 
