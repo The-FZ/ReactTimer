@@ -7,6 +7,8 @@ var Examples = require('Examples');
 var {BrowserRouter, Route, Switch} = require('react-router-dom');
 
 //load foundation
+require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
+$(document).foundation();
 
 ReactDOM.render(
   <BrowserRouter>
