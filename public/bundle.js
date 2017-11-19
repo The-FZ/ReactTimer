@@ -20975,11 +20975,6 @@ var _require = __webpack_require__(17),
 var Nav = createReactClass({
   displayName: 'Nav',
 
-  onSearch: function onSearch(event) {
-    event.preventDefault();
-    alert('Not yet wired up !!!');
-  },
-
   render: function render() {
     return React.createElement(
       'div',
@@ -21020,28 +21015,6 @@ var Nav = createReactClass({
               NavLink,
               { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
               'Examples '
-            )
-          )
-        )
-      ),
-      React.createElement(
-        'div',
-        { className: 'top-bar-right' },
-        React.createElement(
-          'form',
-          { onSubmit: this.onSearch },
-          React.createElement(
-            'ul',
-            { className: 'menu' },
-            React.createElement(
-              'li',
-              null,
-              React.createElement('input', { type: 'search', placeholder: 'search weather by city' })
-            ),
-            React.createElement(
-              'li',
-              null,
-              React.createElement('input', { type: 'submit', className: 'button', value: 'Get Weather' })
             )
           )
         )
@@ -25604,7 +25577,9 @@ var Weather = createReactClass({
     var that = this;
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
     openWeatherMap.getTemp(location).then(function (temp) {
       that.setState({
@@ -25619,7 +25594,14 @@ var Weather = createReactClass({
       });
     });
   },
-
+  componentDidMount: function componentDidMount() {
+    var locationQuery = this.props.location.search;
+    var location = locationQuery.slice(11, locationQuery.length - 1);
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
   render: function render() {
     var _state = this.state,
         isLoading = _state.isLoading,
