@@ -11,14 +11,12 @@ var Main=(props)=>{
     <BrowserRouter>
       <div>
       <Route path='/' component={Nav}/>
-        <div className='row'>
-          <div className='columns medium-6 large-4 small-centered'>
+        <div className='custom-div'>
           <Switch>
             <Route path='/about' component={About} />
             <Route path='/examples' component={Examples}/>
             <Route path='/' component={Weather} />
           </Switch>
-          </div>
         </div>
       </div>
     </BrowserRouter>
