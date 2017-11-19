@@ -28,7 +28,8 @@ module.exports = {
       About:path.resolve(__dirname,'./app/components/About.js'),
       Examples:path.resolve(__dirname,'./app/components/Examples.js'),
       WeatherMessage:path.resolve(__dirname,'./app/components/WeatherMessage.js'),
-      openWeatherMap:path.resolve(__dirname,'./app/api/openWeatherMap.js')
+      openWeatherMap:path.resolve(__dirname,'./app/api/openWeatherMap.js'),
+      ErrorModal:path.resolve(__dirname,'./app/components/ErrorModal.js')
     },
     extensions:[' ', '.js', '.jsx', '.css']
   },
