@@ -1,13 +1,20 @@
-.top-bar,.top-bar ul{
-  background-color: $nav-background;
-}
 
-.top-bar {
-  .menu-text{
+html{
+  .top-bar {
+   background-color: $grey;
+   .top-bar-left > .menu{
+     background-color: $grey;
+   }
+   .top-bar-right > .menu{
+     background-color: $grey;
+   }
+  .menu >.menu-text{
     color: $nav-text-color;
   }
   .menu > .menu-text >a {
     display:inline;
     padding: 0;
+    color: $skyblue;
   }
+}
 }

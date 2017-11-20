@@ -20266,7 +20266,7 @@ var Nav = function Nav(props) {
           null,
           React.createElement(
             NavLink,
-            { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+            { to: '/timer', activeClassName: 'active', activeStyle: { fontWeight: 'bold', color: 'skyblue' } },
             'Timer'
           )
         ),
@@ -20275,7 +20275,7 @@ var Nav = function Nav(props) {
           null,
           React.createElement(
             NavLink,
-            { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+            { to: '/countdown', activeClassName: 'active', activeStyle: { fontWeight: 'bold', color: 'skyblue' } },
             'Countdown'
           )
         )
@@ -24903,7 +24903,7 @@ exports = module.exports = __webpack_require__(36)(undefined);
 
 
 // module
-exports.push([module.i, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: #ffffff; }\n\n.top-bar .menu > .menu-text > a {\n  display: inline;\n  padding: 0; }\n", ""]);
+exports.push([module.i, "html .top-bar {\n  background-color: #333333; }\n  html .top-bar .top-bar-left > .menu {\n    background-color: #333333; }\n  html .top-bar .top-bar-right > .menu {\n    background-color: #333333; }\n  html .top-bar .menu > .menu-text {\n    color: #ffffff; }\n  html .top-bar .menu > .menu-text > a {\n    display: inline;\n    padding: 0;\n    color: #87ceeb; }\n", ""]);
 
 // exports
 
