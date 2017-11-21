@@ -23,6 +23,8 @@ module.exports = {
     alias:{
       Main:path.resolve(__dirname,'./app/components/Main.js'),
       Navigation:path.resolve(__dirname,'./app/components/Navigation.js'),
+      Countdown:path.resolve(__dirname,'./app/components/Countdown.js'),
+      Timer:path.resolve(__dirname,'./app/components/Timer.js'),
       applicationStyles:path.resolve(__dirname,'./app/styles/app.scss')
     },
     extensions:[' ', '.js', '.jsx', '.css', '.scss']
