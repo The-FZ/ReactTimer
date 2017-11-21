@@ -727,6 +727,41 @@ module.exports = warning;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var React = __webpack_require__(0);
+var factory = __webpack_require__(59);
+
+if (typeof React === 'undefined') {
+  throw Error(
+    'create-react-class could not find the React object. If you are using script tags, ' +
+      'make sure that React is being loaded before create-react-class.'
+  );
+}
+
+// Hack to grab NoopUpdateQueue from isomorphic React
+var ReactNoopUpdateQueue = new React.Component().updater;
+
+module.exports = factory(
+  React.Component,
+  React.isValidElement,
+  ReactNoopUpdateQueue
+);
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 exports.__esModule = true;
@@ -790,7 +825,7 @@ var createPath = exports.createPath = function createPath(location) {
 };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -861,41 +896,6 @@ var createPath = function createPath(location) {
 };
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var React = __webpack_require__(0);
-var factory = __webpack_require__(59);
-
-if (typeof React === 'undefined') {
-  throw Error(
-    'create-react-class could not find the React object. If you are using script tags, ' +
-      'make sure that React is being loaded before create-react-class.'
-  );
-}
-
-// Hack to grab NoopUpdateQueue from isomorphic React
-var ReactNoopUpdateQueue = new React.Component().updater;
-
-module.exports = factory(
-  React.Component,
-  React.isValidElement,
-  ReactNoopUpdateQueue
-);
-
-
-/***/ }),
 /* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -904,7 +904,7 @@ module.exports = factory(
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(12);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -1077,7 +1077,7 @@ var _valueEqual = __webpack_require__(31);
 
 var _valueEqual2 = _interopRequireDefault(_valueEqual);
 
-var _PathUtils = __webpack_require__(10);
+var _PathUtils = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2580,7 +2580,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(93);
+var	fixUrls = __webpack_require__(94);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -2940,9 +2940,9 @@ var ReactDOM = __webpack_require__(48);
 var Main = __webpack_require__(57);
 
 //custom scss
-__webpack_require__(91);
+__webpack_require__(92);
 //load foundation
-__webpack_require__(94);
+__webpack_require__(95);
 $(document).foundation();
 
 ReactDOM.render(React.createElement(Main, null), document.getElementById('app'));
@@ -20244,7 +20244,7 @@ module.exports = camelize;
 var React = __webpack_require__(0);
 var Navigation = __webpack_require__(58);
 var Countdown = __webpack_require__(88);
-var Timer = __webpack_require__(90);
+var Timer = __webpack_require__(91);
 
 var _require = __webpack_require__(29),
     BrowserRouter = _require.BrowserRouter,
@@ -20261,12 +20261,16 @@ var Main = function Main(props) {
       React.createElement(Route, { path: '/', component: Navigation }),
       React.createElement(
         'div',
-        null,
+        { className: 'row' },
         React.createElement(
-          Switch,
-          null,
-          React.createElement(Route, { path: '/countdown', component: Countdown }),
-          React.createElement(Route, { path: '/', component: Timer })
+          'div',
+          { className: 'column small-centered medium-6 large-4' },
+          React.createElement(
+            Switch,
+            null,
+            React.createElement(Route, { path: '/countdown', component: Countdown }),
+            React.createElement(Route, { path: '/', component: Timer })
+          )
         )
       )
     )
@@ -20283,7 +20287,7 @@ module.exports = Main;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(12);
+var createReactClass = __webpack_require__(10);
 
 var _require = __webpack_require__(29),
     NavLink = _require.NavLink;
@@ -21929,7 +21933,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(16);
 
-var _PathUtils = __webpack_require__(10);
+var _PathUtils = __webpack_require__(11);
 
 var _createTransitionManager = __webpack_require__(17);
 
@@ -22306,7 +22310,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(16);
 
-var _PathUtils = __webpack_require__(10);
+var _PathUtils = __webpack_require__(11);
 
 var _createTransitionManager = __webpack_require__(17);
 
@@ -22710,7 +22714,7 @@ var _warning = __webpack_require__(1);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _PathUtils = __webpack_require__(10);
+var _PathUtils = __webpack_require__(11);
 
 var _LocationUtils = __webpack_require__(16);
 
@@ -23626,7 +23630,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(13);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(12);
 /* unused harmony reexport parsePath */
 /* unused harmony reexport createPath */
 
@@ -23649,7 +23653,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(36);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -23953,7 +23957,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(36);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -24271,7 +24275,7 @@ var createHashHistory = function createHashHistory() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(21);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -24456,7 +24460,7 @@ var createMemoryHistory = function createMemoryHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_history_PathUtils__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Router__ = __webpack_require__(19);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -24878,17 +24882,56 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(12);
+var createReactClass = __webpack_require__(10);
 var Clock = __webpack_require__(89);
+var CountdownForm = __webpack_require__(90);
 
 var Countdown = createReactClass({
   displayName: 'Countdown',
 
+  getInitialState: function getInitialState() {
+    return {
+      count: 0,
+      countdownStatus: 'stopped'
+    };
+  },
+
+  handleSetCountDown: function handleSetCountDown(seconds) {
+    this.setState({
+      count: seconds,
+      countdownStatus: 'started'
+    });
+  },
+
+  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+    if (this.state.countdownStatus !== prevState.countdownStatus) {
+      switch (this.state.countdownStatus) {
+        case 'started':
+          this.startTimer();
+          break;
+      }
+    }
+  },
+  startTimer: function startTimer() {
+    var _this = this;
+
+    this.Timer = setInterval(function () {
+      var newCount = _this.state.count - 1;
+      _this.setState({
+        count: newCount >= 0 ? newCount : 0
+      });
+    }, 1000);
+  },
+
   render: function render() {
+    var count = this.state.count;
+
+
     return React.createElement(
       'div',
       null,
-      React.createElement(Clock, { totalSeconds: 129 })
+      React.createElement(Clock, { totalSeconds: count }),
+      React.createElement(CountdownForm, { onSetCountDown: this.handleSetCountDown })
     );
   }
 });
@@ -24903,8 +24946,8 @@ module.exports = Countdown;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(12);
-var _PropTypes = __webpack_require__(3);
+var createReactClass = __webpack_require__(10);
+var PropTypes = __webpack_require__(3);
 
 var Clock = createReactClass({
   displayName: 'Clock',
@@ -24914,8 +24957,8 @@ var Clock = createReactClass({
       totalSeconds: 0
     };
   },
-  PropTypes: function PropTypes() {
-    totalSeconds: _PropTypes.number;
+  PropTypes: {
+    totalSeconds: PropTypes.number
   },
 
   formatSeconds: function formatSeconds(totalSeconds) {
@@ -24955,7 +24998,50 @@ module.exports = Clock;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(12);
+var createReactClass = __webpack_require__(10);
+
+var CountdownForm = createReactClass({
+  displayName: 'CountdownForm',
+
+  onSubmit: function onSubmit(event) {
+    event.preventDefault();
+    var strSeconds = this.refs.seconds.value;
+
+    if (strSeconds.match(/^[0-9]*$/)) {
+      this.refs.seconds.value = '';
+      this.props.onSetCountDown(parseInt(strSeconds, 10));
+    }
+  },
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'form',
+        { ref: 'form', onSubmit: this.onSubmit, className: 'countdown-form' },
+        React.createElement('input', { type: 'text', ref: 'seconds', placeholder: 'Enter time in seconds' }),
+        React.createElement(
+          'button',
+          { className: 'button expanded' },
+          'Start'
+        )
+      )
+    );
+  }
+});
+
+module.exports = CountdownForm;
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__(0);
+var createReactClass = __webpack_require__(10);
 
 var Timer = createReactClass({
   displayName: 'Timer',
@@ -24972,13 +25058,13 @@ var Timer = createReactClass({
 module.exports = Timer;
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(92);
+var content = __webpack_require__(93);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -25003,7 +25089,7 @@ if(false) {
 }
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(37)(undefined);
@@ -25011,13 +25097,13 @@ exports = module.exports = __webpack_require__(37)(undefined);
 
 
 // module
-exports.push([module.i, "html .top-bar {\n  background-color: #333333; }\n  html .top-bar .top-bar-left > .menu {\n    background-color: #333333; }\n  html .top-bar .top-bar-right > .menu {\n    background-color: #333333; }\n  html .top-bar .menu > .menu-text {\n    color: #ffffff; }\n  html .top-bar .menu > .menu-text > a {\n    display: inline;\n    padding: 0;\n    color: #87ceeb; }\n\n.clock {\n  align-items: center;\n  background-color: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: #fff;\n  font-size: 2.25rem;\n  font-weight: 300; }\n", ""]);
+exports.push([module.i, "html .top-bar {\n  background-color: #333333; }\n  html .top-bar .top-bar-left > .menu {\n    background-color: #333333; }\n  html .top-bar .top-bar-right > .menu {\n    background-color: #333333; }\n  html .top-bar .menu > .menu-text {\n    color: #ffffff; }\n  html .top-bar .menu > .menu-text > a {\n    display: inline;\n    padding: 0;\n    color: #87ceeb; }\n\n.clock {\n  align-items: center;\n  background-color: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: #fff;\n  font-size: 2.25rem;\n  font-weight: 300; }\n\n.row .column {\n  width: 40%;\n  margin: 0 auto; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports) {
 
 
@@ -25112,13 +25198,13 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(95);
+var content = __webpack_require__(96);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -25143,7 +25229,7 @@ if(false) {
 }
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(37)(undefined);

@@ -9,11 +9,13 @@ var Main=(props)=>{
       <BrowserRouter>
         <div>
         <Route path='/' component={Navigation}/>
-          <div>
+          <div className='row'>
+          <div className='column small-centered medium-6 large-4'>
             <Switch>
               <Route path='/countdown' component={Countdown}/>
               <Route path='/' component={Timer}/>
             </Switch>
+          </div>
           </div>
         </div>
       </BrowserRouter>

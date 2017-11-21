@@ -8,7 +8,7 @@ var Clock = createReactClass({
       totalSeconds:0
     }
   },
-  PropTypes:function(){
+  PropTypes:{
     totalSeconds:PropTypes.number
   },
 
