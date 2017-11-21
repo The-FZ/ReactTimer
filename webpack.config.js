@@ -25,6 +25,7 @@ module.exports = {
       Navigation:path.resolve(__dirname,'./app/components/Navigation.js'),
       Countdown:path.resolve(__dirname,'./app/components/Countdown.js'),
       Timer:path.resolve(__dirname,'./app/components/Timer.js'),
+      Clock:path.resolve(__dirname,'./app/components/Clock.js'),
       applicationStyles:path.resolve(__dirname,'./app/styles/app.scss')
     },
     extensions:[' ', '.js', '.jsx', '.css', '.scss']

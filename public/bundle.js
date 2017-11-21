@@ -862,6 +862,41 @@ var createPath = function createPath(location) {
 
 /***/ }),
 /* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var React = __webpack_require__(0);
+var factory = __webpack_require__(59);
+
+if (typeof React === 'undefined') {
+  throw Error(
+    'create-react-class could not find the React object. If you are using script tags, ' +
+      'make sure that React is being loaded before create-react-class.'
+  );
+}
+
+// Hack to grab NoopUpdateQueue from isomorphic React
+var ReactNoopUpdateQueue = new React.Component().updater;
+
+module.exports = factory(
+  React.Component,
+  React.isValidElement,
+  ReactNoopUpdateQueue
+);
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -937,7 +972,7 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -953,7 +988,7 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(7);
   var warning = __webpack_require__(9);
-  var ReactPropTypesSecret = __webpack_require__(14);
+  var ReactPropTypesSecret = __webpack_require__(15);
   var loggedTypeFailures = {};
 }
 
@@ -1004,7 +1039,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1020,41 +1055,6 @@ module.exports = checkPropTypes;
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var React = __webpack_require__(0);
-var factory = __webpack_require__(59);
-
-if (typeof React === 'undefined') {
-  throw Error(
-    'create-react-class could not find the React object. If you are using script tags, ' +
-      'make sure that React is being loaded before create-react-class.'
-  );
-}
-
-// Hack to grab NoopUpdateQueue from isomorphic React
-var ReactNoopUpdateQueue = new React.Component().updater;
-
-module.exports = factory(
-  React.Component,
-  React.isValidElement,
-  ReactNoopUpdateQueue
-);
 
 
 /***/ }),
@@ -2580,7 +2580,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(92);
+var	fixUrls = __webpack_require__(93);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -2940,9 +2940,9 @@ var ReactDOM = __webpack_require__(48);
 var Main = __webpack_require__(57);
 
 //custom scss
-__webpack_require__(90);
+__webpack_require__(91);
 //load foundation
-__webpack_require__(93);
+__webpack_require__(94);
 $(document).foundation();
 
 ReactDOM.render(React.createElement(Main, null), document.getElementById('app'));
@@ -3008,7 +3008,7 @@ var invariant = __webpack_require__(7);
 var emptyObject = __webpack_require__(8);
 var warning = __webpack_require__(9);
 var emptyFunction = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(13);
+var checkPropTypes = __webpack_require__(14);
 
 // TODO: this is special because it gets imported during build.
 
@@ -4702,7 +4702,7 @@ var shallowEqual = __webpack_require__(26);
 var containsNode = __webpack_require__(27);
 var focusNode = __webpack_require__(28);
 var emptyObject = __webpack_require__(8);
-var checkPropTypes = __webpack_require__(13);
+var checkPropTypes = __webpack_require__(14);
 var hyphenateStyleName = __webpack_require__(53);
 var camelizeStyleName = __webpack_require__(55);
 
@@ -20244,7 +20244,7 @@ module.exports = camelize;
 var React = __webpack_require__(0);
 var Navigation = __webpack_require__(58);
 var Countdown = __webpack_require__(88);
-var Timer = __webpack_require__(89);
+var Timer = __webpack_require__(90);
 
 var _require = __webpack_require__(29),
     BrowserRouter = _require.BrowserRouter,
@@ -20283,7 +20283,7 @@ module.exports = Main;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(15);
+var createReactClass = __webpack_require__(12);
 
 var _require = __webpack_require__(29),
     NavLink = _require.NavLink;
@@ -21310,8 +21310,8 @@ var invariant = __webpack_require__(7);
 var warning = __webpack_require__(9);
 var assign = __webpack_require__(6);
 
-var ReactPropTypesSecret = __webpack_require__(14);
-var checkPropTypes = __webpack_require__(13);
+var ReactPropTypesSecret = __webpack_require__(15);
+var checkPropTypes = __webpack_require__(14);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -21857,7 +21857,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var emptyFunction = __webpack_require__(5);
 var invariant = __webpack_require__(7);
-var ReactPropTypesSecret = __webpack_require__(14);
+var ReactPropTypesSecret = __webpack_require__(15);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -23623,7 +23623,7 @@ Redirect.contextTypes = {
 /* unused harmony reexport createHashHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(79);
 /* unused harmony reexport createMemoryHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(13);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(11);
@@ -23648,7 +23648,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(36);
@@ -23952,7 +23952,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(36);
@@ -24272,7 +24272,7 @@ var createHashHistory = function createHashHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(21);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -24878,16 +24878,17 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(15);
+var createReactClass = __webpack_require__(12);
+var Clock = __webpack_require__(89);
 
 var Countdown = createReactClass({
   displayName: 'Countdown',
 
   render: function render() {
     return React.createElement(
-      'p',
+      'div',
       null,
-      'Countdown component'
+      React.createElement(Clock, { totalSeconds: 129 })
     );
   }
 });
@@ -24902,7 +24903,59 @@ module.exports = Countdown;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(15);
+var createReactClass = __webpack_require__(12);
+var _PropTypes = __webpack_require__(3);
+
+var Clock = createReactClass({
+  displayName: 'Clock',
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      totalSeconds: 0
+    };
+  },
+  PropTypes: function PropTypes() {
+    totalSeconds: _PropTypes.number;
+  },
+
+  formatSeconds: function formatSeconds(totalSeconds) {
+    var seconds = totalSeconds % 60;
+    var minutes = Math.floor(totalSeconds / 60);
+    if (seconds < 10) {
+      seconds = '0' + seconds;
+    }
+    if (minutes < 10) {
+      minutes = '0' + minutes;
+    }
+    return minutes + ':' + seconds;
+  },
+
+  render: function render() {
+    var totalSeconds = this.props.totalSeconds;
+
+    return React.createElement(
+      'div',
+      { className: 'clock' },
+      React.createElement(
+        'span',
+        { className: 'clock-text' },
+        this.formatSeconds(totalSeconds)
+      )
+    );
+  }
+});
+
+module.exports = Clock;
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__(0);
+var createReactClass = __webpack_require__(12);
 
 var Timer = createReactClass({
   displayName: 'Timer',
@@ -24919,13 +24972,13 @@ var Timer = createReactClass({
 module.exports = Timer;
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(91);
+var content = __webpack_require__(92);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -24950,7 +25003,7 @@ if(false) {
 }
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(37)(undefined);
@@ -24958,13 +25011,13 @@ exports = module.exports = __webpack_require__(37)(undefined);
 
 
 // module
-exports.push([module.i, "html .top-bar {\n  background-color: #333333; }\n  html .top-bar .top-bar-left > .menu {\n    background-color: #333333; }\n  html .top-bar .top-bar-right > .menu {\n    background-color: #333333; }\n  html .top-bar .menu > .menu-text {\n    color: #ffffff; }\n  html .top-bar .menu > .menu-text > a {\n    display: inline;\n    padding: 0;\n    color: #87ceeb; }\n", ""]);
+exports.push([module.i, "html .top-bar {\n  background-color: #333333; }\n  html .top-bar .top-bar-left > .menu {\n    background-color: #333333; }\n  html .top-bar .top-bar-right > .menu {\n    background-color: #333333; }\n  html .top-bar .menu > .menu-text {\n    color: #ffffff; }\n  html .top-bar .menu > .menu-text > a {\n    display: inline;\n    padding: 0;\n    color: #87ceeb; }\n\n.clock {\n  align-items: center;\n  background-color: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: #fff;\n  font-size: 2.25rem;\n  font-weight: 300; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports) {
 
 
@@ -25059,13 +25112,13 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(94);
+var content = __webpack_require__(95);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -25090,7 +25143,7 @@ if(false) {
 }
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(37)(undefined);
