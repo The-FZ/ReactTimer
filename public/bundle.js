@@ -634,6 +634,41 @@ module.exports = invariant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var React = __webpack_require__(0);
+var factory = __webpack_require__(59);
+
+if (typeof React === 'undefined') {
+  throw Error(
+    'create-react-class could not find the React object. If you are using script tags, ' +
+      'make sure that React is being loaded before create-react-class.'
+  );
+}
+
+// Hack to grab NoopUpdateQueue from isomorphic React
+var ReactNoopUpdateQueue = new React.Component().updater;
+
+module.exports = factory(
+  React.Component,
+  React.isValidElement,
+  ReactNoopUpdateQueue
+);
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -654,7 +689,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -721,41 +756,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var React = __webpack_require__(0);
-var factory = __webpack_require__(59);
-
-if (typeof React === 'undefined') {
-  throw Error(
-    'create-react-class could not find the React object. If you are using script tags, ' +
-      'make sure that React is being loaded before create-react-class.'
-  );
-}
-
-// Hack to grab NoopUpdateQueue from isomorphic React
-var ReactNoopUpdateQueue = new React.Component().updater;
-
-module.exports = factory(
-  React.Component,
-  React.isValidElement,
-  ReactNoopUpdateQueue
-);
-
 
 /***/ }),
 /* 11 */
@@ -987,7 +987,7 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(7);
-  var warning = __webpack_require__(9);
+  var warning = __webpack_require__(10);
   var ReactPropTypesSecret = __webpack_require__(15);
   var loggedTypeFailures = {};
 }
@@ -2967,7 +2967,7 @@ module.exports = jQuery;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var m=__webpack_require__(6),n=__webpack_require__(8),p=__webpack_require__(5);
+var m=__webpack_require__(6),n=__webpack_require__(9),p=__webpack_require__(5);
 function q(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var r={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function t(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}t.prototype.isReactComponent={};t.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?q("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};t.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function u(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}function v(){}v.prototype=t.prototype;var w=u.prototype=new v;w.constructor=u;m(w,t.prototype);w.isPureReactComponent=!0;function x(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}var y=x.prototype=new v;y.constructor=x;m(y,t.prototype);y.unstable_isAsyncReactComponent=!0;y.render=function(){return this.props.children};
@@ -3005,8 +3005,8 @@ if (process.env.NODE_ENV !== "production") {
 
 var _assign = __webpack_require__(6);
 var invariant = __webpack_require__(7);
-var emptyObject = __webpack_require__(8);
-var warning = __webpack_require__(9);
+var emptyObject = __webpack_require__(9);
+var warning = __webpack_require__(10);
 var emptyFunction = __webpack_require__(5);
 var checkPropTypes = __webpack_require__(14);
 
@@ -4396,7 +4396,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(0),m=__webpack_require__(23),A=__webpack_require__(6),B=__webpack_require__(5),ca=__webpack_require__(24),da=__webpack_require__(25),ea=__webpack_require__(26),ha=__webpack_require__(27),ia=__webpack_require__(28),C=__webpack_require__(8);
+var aa=__webpack_require__(0),m=__webpack_require__(23),A=__webpack_require__(6),B=__webpack_require__(5),ca=__webpack_require__(24),da=__webpack_require__(25),ea=__webpack_require__(26),ha=__webpack_require__(27),ia=__webpack_require__(28),C=__webpack_require__(9);
 function D(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:D("227");
 var la={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function qa(a,b){return(a&b)===b}
 var ra={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ra,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){sa.hasOwnProperty(f)?D("48",f):void 0;var g=f.toLowerCase(),k=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:qa(k,b.MUST_USE_PROPERTY),
@@ -4692,7 +4692,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var React = __webpack_require__(0);
 var invariant = __webpack_require__(7);
-var warning = __webpack_require__(9);
+var warning = __webpack_require__(10);
 var ExecutionEnvironment = __webpack_require__(23);
 var _assign = __webpack_require__(6);
 var emptyFunction$1 = __webpack_require__(5);
@@ -4701,7 +4701,7 @@ var getActiveElement = __webpack_require__(25);
 var shallowEqual = __webpack_require__(26);
 var containsNode = __webpack_require__(27);
 var focusNode = __webpack_require__(28);
-var emptyObject = __webpack_require__(8);
+var emptyObject = __webpack_require__(9);
 var checkPropTypes = __webpack_require__(14);
 var hyphenateStyleName = __webpack_require__(53);
 var camelizeStyleName = __webpack_require__(55);
@@ -20287,7 +20287,7 @@ module.exports = Main;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(10);
+var createReactClass = __webpack_require__(8);
 
 var _require = __webpack_require__(29),
     NavLink = _require.NavLink;
@@ -20367,11 +20367,11 @@ module.exports = Nav;
 
 var _assign = __webpack_require__(6);
 
-var emptyObject = __webpack_require__(8);
+var emptyObject = __webpack_require__(9);
 var _invariant = __webpack_require__(7);
 
 if (process.env.NODE_ENV !== 'production') {
-  var warning = __webpack_require__(9);
+  var warning = __webpack_require__(10);
 }
 
 var MIXINS_KEY = 'mixins';
@@ -21311,7 +21311,7 @@ BrowserRouter.propTypes = {
 
 var emptyFunction = __webpack_require__(5);
 var invariant = __webpack_require__(7);
-var warning = __webpack_require__(9);
+var warning = __webpack_require__(10);
 var assign = __webpack_require__(6);
 
 var ReactPropTypesSecret = __webpack_require__(15);
@@ -24882,7 +24882,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(10);
+var createReactClass = __webpack_require__(8);
 var Clock = __webpack_require__(89);
 var CountdownForm = __webpack_require__(90);
 var Controls = __webpack_require__(91);
@@ -24921,6 +24921,11 @@ var Countdown = createReactClass({
       }
     }
   },
+  componentWillUnmount: function componentWillUnmount() {
+    clearInterval(this.timer);
+    this.timer = undefined;
+  },
+
   startTimer: function startTimer() {
     var _this = this;
 
@@ -24929,6 +24934,11 @@ var Countdown = createReactClass({
       _this.setState({
         count: newCount >= 0 ? newCount : 0
       });
+      if (newCount === 0) {
+        _this.setState({
+          countdownStatus: 'stopped'
+        });
+      }
     }, 1000);
   },
 
@@ -24972,7 +24982,7 @@ module.exports = Countdown;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(10);
+var createReactClass = __webpack_require__(8);
 var PropTypes = __webpack_require__(3);
 
 var Clock = createReactClass({
@@ -25024,7 +25034,7 @@ module.exports = Clock;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(10);
+var createReactClass = __webpack_require__(8);
 
 var CountdownForm = createReactClass({
   displayName: 'CountdownForm',
@@ -25067,7 +25077,7 @@ module.exports = CountdownForm;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(10);
+var createReactClass = __webpack_require__(8);
 var PropTypes = __webpack_require__(3);
 
 var Controls = createReactClass({
@@ -25085,7 +25095,6 @@ var Controls = createReactClass({
       _this.props.onStatusChange(newStatus);
     };
   },
-
   render: function render() {
     var _this2 = this;
 
@@ -25130,7 +25139,7 @@ module.exports = Controls;
 
 
 var React = __webpack_require__(0);
-var createReactClass = __webpack_require__(10);
+var createReactClass = __webpack_require__(8);
 
 var Timer = createReactClass({
   displayName: 'Timer',
