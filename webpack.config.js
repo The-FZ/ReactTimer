@@ -27,6 +27,7 @@ module.exports = {
       Timer:path.resolve(__dirname,'./app/components/Timer.js'),
       Clock:path.resolve(__dirname,'./app/components/Clock.js'),
       CountdownForm:path.resolve(__dirname,'./app/components/CountdownForm.js'),
+      Controls:path.resolve(__dirname,'./app/components/Controls.js'),
       applicationStyles:path.resolve(__dirname,'./app/styles/app.scss')
     },
     extensions:[' ', '.js', '.jsx', '.css', '.scss']
